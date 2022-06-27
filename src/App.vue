@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div v-show="show" id="pressao">
+    </div>
+    <Teste_Api v-on:mostrar="show = true" v-on:esconder="show = false"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Teste_Api from "./components/Teste_Api";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default{
+    name: 'app',
+    data() {
+     return {
+       show: false,
+     };
+   },
+    components:{
+    Teste_Api
+},
+    methods:{
+      teste(){
+        alert("af")
+      }
+    }
+
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #pressao{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+  }
 </style>
